@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Inter:wght@400;500;600;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-ink-black-50: #efecf8;
+  --color-ink-black-100: #e0daf1;
+  --color-ink-black-200: #c0b4e4;
+  --color-ink-black-300: #a18fd6;
+  --color-ink-black-400: #8169c9;
+  --color-ink-black-500: #6244bb;
+  --color-ink-black-600: #4e3696;
+  --color-ink-black-700: #3b2970;
+  --color-ink-black-800: #271b4b;
+  --color-ink-black-900: #140e25;
+  --color-ink-black-950: #0e091a;
+
+  --color-rebecca-purple-50: #efecf8;
+  --color-rebecca-purple-100: #e0d9f2;
+  --color-rebecca-purple-200: #c0b3e5;
+  --color-rebecca-purple-300: #a18dd8;
+  --color-rebecca-purple-400: #8267cb;
+  --color-rebecca-purple-500: #6241be;
+  --color-rebecca-purple-600: #4f3498;
+  --color-rebecca-purple-700: #3b2772;
+  --color-rebecca-purple-800: #271a4c;
+  --color-rebecca-purple-900: #140d26;
+  --color-rebecca-purple-950: #0e091b;
+
+  --color-lilac-ash-50: #f1f0f5;
+  --color-lilac-ash-100: #e4e1ea;
+  --color-lilac-ash-200: #c9c3d5;
+  --color-lilac-ash-300: #aea5c0;
+  --color-lilac-ash-400: #9387ab;
+  --color-lilac-ash-500: #786996;
+  --color-lilac-ash-600: #605478;
+  --color-lilac-ash-700: #483f5a;
+  --color-lilac-ash-800: #302a3c;
+  --color-lilac-ash-900: #18151e;
+  --color-lilac-ash-950: #110f15;
+
+  --color-deep-lilac-50: #f0edf7;
+  --color-deep-lilac-100: #e1dbf0;
+  --color-deep-lilac-200: #c3b7e1;
+  --color-deep-lilac-300: #a593d2;
+  --color-deep-lilac-400: #876fc3;
+  --color-deep-lilac-500: #694bb4;
+  --color-deep-lilac-600: #543c90;
+  --color-deep-lilac-700: #3f2d6c;
+  --color-deep-lilac-800: #2a1e48;
+  --color-deep-lilac-900: #150f24;
+  --color-deep-lilac-950: #0f0b19;
+}
+
+/* Base font override */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Poster-style ultra-condensed tall font */
+.text-poster-header {
+  font-family: 'Big Shoulders Display', 'Arial Narrow', 'Impact', sans-serif;
+  font-weight: 900;
+  font-stretch: ultra-condensed;
+  letter-spacing: -0.02em;
+  text-shadow: 0 6px 40px rgba(0, 0, 0, 0.9), 0 2px 10px rgba(0, 0, 0, 0.7);
+  /* Vertical stretch to match cinematic poster look */
+  transform: scaleY(1.6);
+  transform-origin: bottom center;
+}
+
+/* ────────────────────────────────────────────────
+   Per-letter staggered slide-up reveal animation
+   (matches the Levi Wilson "Deadpool" entry style)
+   ──────────────────────────────────────────────── */
+@keyframes letterReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scaleY(0.85);
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scaleY(1);
+    filter: blur(0px);
+  }
+}
+
+.letter-reveal {
+  animation: letterReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ────────────────────────────────────────────────
+   Scroll hint gentle bounce
+   ──────────────────────────────────────────────── */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0px);  opacity: 0.5; }
+  50%       { transform: translateY(5px);  opacity: 1;   }
+}
+
+.scroll-bounce {
+  animation: scrollBounce 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ────────────────────────────────────────────────
+   Idle gateway — soft breathing (opacity only; no layout shift)
+   ──────────────────────────────────────────────── */
+@keyframes gatewayBreathe {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.88; }
+}
+
+.gateway-breathe {
+  animation: gatewayBreathe 4.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  will-change: opacity;
+}
+
+/* ────────────────────────────────────────────────
+   First-scroll acceleration progress bar
+   ──────────────────────────────────────────────── */
+@keyframes accelProgress {
+  from { width: 0%; opacity: 0.4; }
+  to   { width: 100%; opacity: 1; }
+}
+
+.accel-progress {
+  animation: accelProgress var(--accel-duration, 2.6s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ────────────────────────────────────────────────
+   Static CTA — one-shot reveal (no loop)
+   ──────────────────────────────────────────────── */
+@keyframes ctaReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.cta-reveal {
+  animation: ctaReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

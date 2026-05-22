@@ -1,27 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My WebSite</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <img class = "img-gradient" src="assets/gradient.png" alt="bg-gradient">
-    <div  class="layer-blur"></div>
-    <div class="container">
-        <header>
-            <h1 class="logo">Mysite</h1>
-
-            <nav>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Credentials</a></li>
-
-                <button class="signin">SIGN IN</button>
-                
-        </header>
-    </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Varun | Portfolio & Creative Space</title>
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Big+Shoulders+Display:wght@800;900&display=swap" rel="stylesheet" />
+    <!-- Spline 3D Viewer library -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.70/build/spline-viewer.js"></script>
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 overflow-x-hidden font-['Plus_Jakarta_Sans',sans-serif]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
